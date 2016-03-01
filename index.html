@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title></title>
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link href='styles/main.css' rel='stylesheet' type="text/css">
+</head>
+<body ng-app="todoListApp"><!-- bootstrap our angular app within the HTML template. There are a few different ways to bootstrap an Angular application. Most common, which is to use the NG app directive. Remember, directives are tags or attributes of tags. The NG App directive happens to be an attribute. Provide the name of the application as a parameter to the directive. Make sure the string in the module method matches the NG app directly or else your Angular app won't work. -->
+  <hello-world></hello-world> <!-- use helloWorld directive (see hello-world.js) by writing it into my index.html file as a tag. Notice that the name of the directive was camel case: helloWorld in hello-world.js file. Now this camel case is turned into all lower case letters with hyphens separating the words. The reason the Angular team decided to do this is because HTML is case insensitive and the convention in HTML is generally to have lower case tags. -->
+	<div hello-world></div><!-- we can also invoke my directive through attributes of tags. I can do this by moving the directive to be an attribute of a div. See that here we'll turn our tag into a div. -->
+	
+	<h1>My TODO List</h1>
+	<div ng-controller="mainCtrl" class="list"><!-- in order to use the controller in the application, you have to actually inject it into your template. You do this with the ng-controller directive. Set this directive to equal to the name you gave your controller, mainCtrl -->
+		<input type="checkbox" />
+		<label class="editing label">A sample todo</label><!-- label will be used to display the value of the to do -->
+		<input class="editing label" type="text" /><!-- the input will be used to change the value of the to do -->
+		<div class="actions" ng-controller="coolCtrl">
+			<a href="" ng-click="whoAmI()">Edit</a>
+			<a href="" ng-click="helloWorld()">Save</a><!-- this is saying when the user clicks the Save button, fire the helloWorld function -->
+			<a href="" class="delete">Delete</a>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="scripts/app.js" type="text/javascript"></script>
+	<script src="scripts/hello-world.js" type="text/javascript"></script><!-- be sure to include it after app.js file -->
+</body>
+</html>
